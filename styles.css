@@ -421,6 +421,7 @@ nav {
 .follow-us {
     text-align: center;
     margin-top: 20px;
+    background-color: #00000038;
 }
 @font-face {
     font-family: chicks;
