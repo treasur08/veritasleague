@@ -1,0 +1,162 @@
+/* Reset some default styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: cali, sans-serif;
+    color: white;
+}
+@font-face {
+    font-family: cartoon;
+    src: url(National\ Cartoon.ttf);
+}
+@font-face {
+    font-family: cali;
+    src: url(CalligraphyFLF.ttf);
+}
+html {  
+    scroll-behavior: smooth; /* Enables smooth scrolling */  
+}
+h1{
+    font-family: cartoon;
+    color: #ffd700;
+}
+p{
+    font-size: 30px;
+}
+#background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the video covers the entire background */
+    z-index: -1; /* Places the video behind the content */
+}
+/* Music control button */
+.music-btn {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+/* Container styling */
+.container {
+    position: relative;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5); /* Black transparent background */
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* Specific styling for Glories container */
+.glories-container h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+/* Specific styling for Rock Paper Scissors container */
+.rps-container {
+    margin-top: 50px;
+}
+
+.rps-icons {
+    display: flex;
+    justify-content: space-around;
+    font-size: 3em; /* Icon size */
+    margin-top: 20px;
+    color: white;
+}
+.rps-icons i {
+    cursor: pointer; /* Cursor changes to pointer on hover */
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Hover effect for Rock Paper Scissors icons */
+.rps-icons i:hover {
+    transform: scale(1.2); /* Icon grows slightly on hover */
+    color: #ffeb3b; /* Change color on hover */
+}
+
+/* Result text styling */
+.result {
+    margin-top: 20px;
+    font-size: 1.5em;
+}
+/* Formation container styling */  
+.formation-container {  
+    max-width: 800px; /* Max width of the formation container */  
+    margin: 50px auto; /* Centering the container */  
+    padding: 20px; /* Padding around the text */  
+    background-color: rgba(0, 0, 0, 0.5); /* Black transparent background */  
+    border-radius: 8px;  
+    color: white; /* Text color */  
+}  
+
+/* Team styling */  
+.team {  
+    text-align: center; /* Center text within teams */  
+    margin-bottom: 30px; /* Space between teams */  
+}  
+
+.team h2 {  
+    font-size: 1.5em; /* Team title size */  
+    margin-bottom: 10px; /* Margin below team title */  
+}  
+
+/* Player styling */  
+.player {  
+    display: inline-block; /* Display players inline */  
+    margin: 10px; /* Margin around players */  
+    text-align: center; /* Center player info */  
+}  
+
+.player-logo {  
+    width: 80px; /* Fixed logo width */  
+    height: auto; /* Preserve aspect ratio */  
+    border-radius: 50%; /* Circular logos */  
+}  
+
+.player-name {  
+    margin-top: 5px; /* Margin above the player's name */  
+    font-size: 1em; /* Font size of the player's name */  
+}  
+
+/* Media responsiveness */
+@media (max-width: 768px) {
+    .container {
+        margin: 20px;
+        padding: 15px;
+    }
+
+    .rps-icons {
+        font-size: 2em; /* Smaller icons on smaller screens */
+    }
+
+    .glories-container h1,
+    .rps-container h1 {
+        font-size: 1.5em; /* Smaller headings on smaller screens */
+    }
+    .music-btn {
+        font-size: 15px;
+        top: 30px;
+        right: 30px;
+    }
+    .formation-container {  
+        padding: 10px; /* Less padding on smaller screens */  
+    }  
+
+    .player-logo {  
+        width: 60px; /* Smaller logo size on mobile */  
+    }  
+    
+
+}

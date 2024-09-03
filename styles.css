@@ -1,0 +1,656 @@
+/* Reset and basic styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: write, sans-serif;
+    color: white;
+    overflow-x: hidden;
+}
+@font-face {
+    font-family: melo;
+    src: url(Relationship\ of\ mélodrame.ttf);
+}
+/* League Table Section */
+#league-table {
+    padding: 20px;
+    margin-top: 150px; /* Add margin to avoid overlap with navbar */
+}
+/* Game Popup Styles */
+/* Game Popup Styles */  
+.game-popup {  
+    display: none;  
+    position: fixed;  
+    top: 10px;  
+    left: 10px;  
+    right: 10px;  
+    bottom: 10px;  
+    background-color: rgba(0, 0, 0, 0.8);  
+    justify-content: center;  
+    align-items: center;  
+    z-index: 1000;  
+    padding: 20px; /* Add padding for better spacing */  
+}  
+
+.close-game-btn {  
+    position: absolute; /* Position the close button */  
+    top: 10px; /* Move to the top */  
+    right: 10px; /* Move to the right */  
+    font-size: 24px; /* Adjust size */  
+    color: white; /* Change color for visibility */  
+    cursor: pointer; /* Change cursor to pointer */  
+}  
+
+.game-header {  
+    display: flex;  
+    flex-direction: column;  
+    align-items: center;  
+    margin-bottom: 20px; 
+    text-align: center; 
+}  
+
+.large-logo {  
+    width: 200px; /* Make the logo significantly larger */  
+    height: auto;  
+}  
+
+.glowing-logo {  
+    animation: glow 1.5s ease-in-out infinite alternate;  
+    margin-bottom: 10px; /* Adds space between logo and text */  
+}  
+
+.difficulty-text {  
+    margin-top: 0px; /* Adds space above the text */  
+    color: white;  
+    font-size: 1.5em;
+    padding-right: -300px;
+}  
+
+.game-grid {  
+    display: grid;  
+    grid-template-columns: repeat(3, 1fr); /* Ensures 3 columns */  
+    grid-gap: 10px;  
+    margin-top: 20px;  
+    justify-items: center;  
+}  
+
+.game-cell {  
+    width: 100px;  
+    height: 100px;  
+    font-size: 2em;  
+    display: flex;  
+    justify-content: center;  
+    align-items: center;  
+    cursor: pointer;  
+    background-color: darkgoldenrod;  
+    border-radius: 5px;  
+}  
+
+.game-cell.active {  
+    background-color: #363131;  
+}  
+
+.game-info {  
+    margin-top: 20px;  
+    text-align: center; /* Align text to center */  
+}       
+
+.large-logo {
+    width: 450px; /* Make the logo significantly larger */
+    height: auto;
+}
+
+.glowing-logo {
+    animation: glow 1.5s ease-in-out infinite alternate;
+    margin-bottom: 10px; /* Adds space between logo and text */
+}
+
+.difficulty-text {
+    margin-top: 10px; /* Adds space above the text */
+    color: white;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.difficulty-buttons {
+    display: flex; /* Arrange buttons in a row */
+    justify-content: center;
+    gap: 10px; /* Adds space between buttons */
+    margin-top: 5px;
+}
+
+.difficulty-btn {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background-image: linear-gradient(to right, #9A7735, #9f9f9f);
+    border: none;
+    margin: 5px;
+    margin-bottom: 25px;
+    color: white;
+    border-radius: 10px;
+}
+
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Ensures 3 columns */
+    grid-gap: 10px;
+    margin-top: 20px;
+    justify-items: center;
+}
+
+.game-cell {
+    width: 100px;
+    height: 100px;
+    font-size: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: darkgoldenrod;
+    border-radius: 5px;
+}
+
+.game-cell.active {
+    background-color: #363131;
+}
+
+.game-info {  
+    margin-top: 20px;  
+    text-align: center; /* Align text to center */  
+    display: flex; /* Use flexbox for layout */  
+    flex-direction: column; /* Stack items vertically */  
+    align-items: center;
+    margin: 8px; /* Center items horizontally */  
+}  
+
+.game-info button {  
+    margin: 5px 0; /* Add some space between buttons */  
+}
+
+@media (max-width: 600px) {
+    .game-cell {
+        width: 70px;
+        height: 70px;
+        font-size: 1.5em;
+    }
+}
+
+.table-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: rgba(0, 0, 0, 0.599);
+    margin-top: 5px;
+    padding-right: 6px;
+    padding: 6px;
+}
+
+.table-header h2 {
+    color: gold;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+}
+
+.small-logo {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.table-buttons {
+    display: flex;
+}
+
+.btn {
+    background-color: gold;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: darkgoldenrod;
+}
+
+.league-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: rgba(0, 0, 0, 0.599);
+}
+
+.league-table th, .league-table td {
+    border: 1px solid gold;
+    padding: 10px;
+    text-align: center;
+}
+
+.league-table th {
+    background: none;
+    color: gold;
+    font-weight: bold;
+}
+
+.league-table td {
+    color: white;
+}
+
+.team-logo {
+    width: 25px;
+    height: 25px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+@font-face {
+    font-family: write;
+    src: url(Please\ write\ me\ a\ song.ttf);
+}
+p{
+font-family: write;
+}
+/* Background video */
+#background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the video covers the entire background */
+    z-index: -1; /* Places the video behind the content */
+}
+
+
+/* Music control button */
+.music-btn {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+/* Navigation bar */
+nav {
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    padding: 10px 0;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    font-family: melo;
+}
+.close-menu-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    color: white;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+.nav-menu {
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+
+.nav-menu li {
+    margin: 0 15px;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Logo styles */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-image {
+    width: 150px; /* Adjust size as needed */
+    height: auto;
+    margin-right: 10px;
+}
+
+.logo-text {  
+    font-size: 25px;  
+    margin: 0;  
+    background-image: linear-gradient(to right, #9A7735, #9f9f9f); /* Gradient from #9A7735 to black */  
+    -webkit-background-clip: text; /* Makes the text transparent to show the background */  
+    -webkit-text-fill-color: transparent; /* Makes the text color transparent */  
+}
+
+.menu-icon {
+    display: none;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+/* Side menu styles */
+/* Initial state of the side menu */
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -100%; /* Hide off-screen initially */
+    width: 250px;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.573);
+    transition: left 0.3s ease-in-out; /* Smooth animation */
+    z-index: 2000;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+}
+
+/* State when the side menu is open */
+.side-menu.open {
+    left: 0; /* Slide in the menu */
+}
+
+
+.side-menu-close {
+    text-align: right;
+    cursor: pointer;
+    font-size: 24px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.side-menu-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.side-menu-items li {
+    margin-bottom: 15px;
+}
+
+.side-menu-items li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+
+/* Popup container for rules */
+.popup-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background-color: #2d261955;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+.follow-us {
+    text-align: center;
+    margin-top: 20px;
+}
+@font-face {
+    font-family: chicks;
+    src: url(magic_vintage/Magic\ Vintage\ Demo.otf);
+}
+
+.follow-us p {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-family: chicks;
+    color: #ffd700;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between icons */
+}
+
+.social-icons .social-icon i {
+    font-size: 40px; /* Size of icons */
+    color: #000; /* Default icon color */
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Unique hover colors for each icon */
+.social-icons .social-icon:hover .fa-whatsapp {
+    color: #25D366; /* WhatsApp green */
+}
+
+.social-icons .social-icon:hover .fa-instagram {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); /* Instagram gradient */
+    -webkit-background-clip: text; /* Clip background to text */
+    -webkit-text-fill-color: transparent; /* Makes text transparent to show gradient */
+}
+
+.social-icons .social-icon:hover .fa-twitter {
+    color: #1DA1F2; /* Twitter blue */
+}
+
+.social-icons .social-icon:hover .fa-fire {
+    color: #FF4500; /* Free Fire red/orange */
+}
+
+.social-icons .social-icon i:hover {
+    transform: scale(1.2); /* Icon grows slightly on hover */
+}
+
+
+.close-btn {
+    position: absolute;
+    top: 40px;
+    right: 10px;
+    cursor: pointer;
+    color: white;
+    font-size: 20px;
+}
+/* Glow effect for logo */
+@keyframes glow {
+    0% {
+      text-shadow: 0 0 10px #9A7735, 0 0 20px #ffffff, 0 0 30px #9A7735, 0 0 40px black;
+      filter: drop-shadow(0 0 10px #e99903);
+    }
+    50% {
+      text-shadow: 0 0 20px black, 0 0 30px black, 0 0 40px black, 0 0 50px #9A7735;
+      filter: drop-shadow(0 0 20px black);
+    }
+    100% {
+      text-shadow: 0 0 10px #9A7735, 0 0 20px #d49319, 0 0 30px #9A7735, 0 0 40px black;
+      filter: drop-shadow(0 0 10px #9A7735);
+    }
+  }
+  
+  .logo-image,
+  .logo-text {
+    animation: glow 2s infinite alternate; /* Apply the glow animation */
+    transition: all 2s ease-in-out; /* Smooth transition for hover */
+  }
+  
+  /* Optional: Add a hover effect */
+  .logo-image:hover,
+  .logo-text:hover {
+    animation: none; /* Stops glowing when hovering */
+    filter: none; /* Resets any filter effects */
+    text-shadow: none; /* Resets any text-shadow effects */
+  }
+  
+/* Responsive design for smaller screens */
+@media screen and (max-width: 768px) {
+    .table-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .table-buttons {
+        margin-top: 10px;
+    }
+
+    .league-table {
+        font-size: 14px; /* Reduce font size on smaller screens */
+    }
+
+    .league-table th, .league-table td {
+        padding: 8px; /* Adjust padding for smaller screens */
+    }
+
+    .table-header h2 {
+        font-size: 24px; /* Reduce header font size */
+    }
+
+    .btn {
+        padding: 8px 16px; /* Reduce button padding */
+        font-size: 14px; /* Reduce button font size */
+    }
+
+    .small-logo {
+        width: 24px; /* Reduce logo size */
+    }
+
+    .team-logo {
+        width: 20px; /* Reduce team logo size */
+        height: 20px;
+    }
+    .large-logo {  
+        width: 350px; /* Reduce logo size on smaller screens */  
+    }  
+
+    .difficulty-btn {  
+        padding: 8px 16px; /* Adjust button size */  
+        font-size: 1em; /* Adjust font size */ 
+       background-image: linear-gradient(to right, #9A7735, #9f9f9f);
+    }  
+    .game-grid{margin-left: 15.6%;}
+
+    .game-cell {  
+        width: 80px; /* Reduce cell size */  
+        height: 80px; /* Reduce cell size */  
+        font-size: 1.5em; /* Adjust font size */  
+    }  
+
+    .game-info {  
+        font-size: 0.9em; /* Adjust font size for game info */  
+    }  
+
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        position: absolute;
+        top: 60px;
+        left: 0;
+    }
+
+    .menu-icon {
+        display: block;
+        font-size: 20px;
+        margin: 5px;
+    }
+    .side-menu {
+        width: 80%; /* Adjust menu width on smaller screens */
+    }
+
+    .logo {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    .logo-image {
+        width: 70px; /* Adjust size for small screens */
+    }
+
+    .logo-text {
+        font-size: 10px; /* Adjust size for small screens */
+        text-align: center;
+    }
+    .game-header{
+        margin-left: 80%;
+    }
+    
+
+}
+
+@media screen and (max-width: 480px) {
+    .league-table {
+        font-size: 12px; /* Further reduce font size on very small screens */
+    }
+    .league-table th, .league-table td {
+        padding: 6px; /* Further adjust padding for very small screens */
+    }
+
+    .table-header h2 {
+        font-size: 20px; /* Further reduce header font size */
+    }
+
+    .btn {
+        padding: 6px 12px; /* Further reduce button padding */
+        font-size: 12px; /* Further reduce button font size */
+    }
+
+    .small-logo {
+        width: 20px; /* Further reduce logo size */
+    }
+
+    .team-logo {
+        width: 18px; /* Further reduce team logo size */
+        height: 18px;
+    }
+    .large-logo {  
+        width: 350px; /* Further reduce logo size */  
+    }  
+
+    .difficulty-btn {  
+        padding: 6px 12px; /* Further adjust button size */  
+        font-size: 0.9em; /* Further adjust font size */  
+    }  
+
+    .game-cell {  
+        width: 60px; /* Further reduce cell size */  
+        height: 60px; /* Further reduce cell size */  
+        font-size: 1.2em; /* Further adjust font size */  
+    }  
+
+    .game-info {  
+        font-size: 0.8em; /* Further adjust font size for game info */  
+    }  
+    .music-btn {
+        font-size: 14px;
+      
+    }
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achievement</title>
+    <!-- Link to Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+    <!-- Background video -->
+    <video autoplay muted loop id="background-video">
+        <source src="rotating_vid.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    
+    <!-- Background music -->
+    <audio id="background-music" loop>
+        <source src="skrillex.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    <button id="music-control" class="music-btn"><i class="fas fa-volume-up"></i></button>
+
+    <!-- First container: Glories -->
+    <div class="container glories-container">
+        <h1>Glories</h1>
+        <p>Guild achievements will be dropped here</p>
+    </div>
+
+    <!-- Second container: Rock Paper Scissors game -->
+    <div class="container rps-container">
+        <h1>Rock Paper Scissors</h1>
+        <p>Choose your weapon:</p>
+        <div class="rps-icons">
+            <i class="fa fa-hand-rock" data-choice="rock"></i>
+            <i class="fa fa-hand-paper" data-choice="paper"></i>
+            <i class="fa fa-hand-scissors" data-choice="scissors"></i>
+        </div>
+        <div class="result">
+            <p id="result-text"></p>
+        </div>
+    </div>
+    <!-- Game Formation Container -->  
+<div class="formation-container" id="lineup">  
+    <h1>Game Formation: 4v4</h1>  
+    <div class="team">  
+        <h2>Team ?</h2>  
+        <div class="player" id="player1">  
+            <img src="boy.png" alt="Player 1" class="player-logo">  
+            <p class="player-name">Player 1</p>  
+        </div>  
+        <div class="player" id="player2">  
+            <img src="boy.png" alt="Player 2" class="player-logo">  
+            <p class="player-name">Player 2</p>  
+        </div>  
+        <div class="player" id="player3">  
+            <img src="girl.png" alt="Player 3" class="player-logo">  
+            <p class="player-name">Player 3</p>  
+        </div>  
+        <div class="player" id="player4">  
+            <img src="girl.png" alt="Player 4" class="player-logo">  
+            <p class="player-name">Player 4</p>  
+        </div>  
+    </div>  
+    <div class="team">  
+        <h2>Team ?</h2>  
+        <div class="player" id="player5">  
+            <img src="girl.png" alt="Player 5" class="player-logo">  
+            <p class="player-name">Player 5</p>  
+        </div>  
+        <div class="player" id="player6">  
+            <img src="boy.png" alt="Player 6" class="player-logo">  
+            <p class="player-name">Player 6</p>  
+        </div>  
+        <div class="player" id="player7">  
+            <img src="boy.png" alt="Player 7" class="player-logo">  
+            <p class="player-name">Player 7</p>  
+        </div>  
+        <div class="player" id="player8">  
+            <img src="girl.png" alt="Player 8" class="player-logo">  
+            <p class="player-name">Player 8</p>  
+        </div>  
+    </div>  
+</div>
+
+    <!-- Link to external JavaScript file -->
+    <script src="java.js"></script>
+</body>
+</html>
