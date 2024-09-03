@@ -452,7 +452,20 @@ nav {
 .social-icons .social-icon:hover .fa-whatsapp {
     color: #25D366; /* WhatsApp green */
 }
-
+.social-icons .social-icon .fa-whatsapp {
+    color: #25D366; /* WhatsApp green */
+}
+.social-icons .social-icon .fa-twitter {
+    color: #1DA1F2; /* Twitter blue */
+}
+.social-icons .social-icon .fa-fire {
+    color: #FF4500; /* Free Fire red/orange */
+}
+.social-icons .social-icon .fa-instagram {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); /* Instagram gradient */
+    -webkit-background-clip: text; /* Clip background to text */
+    -webkit-text-fill-color: transparent; /* Makes text transparent to show gradient */
+}
 .social-icons .social-icon:hover .fa-instagram {
     background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); /* Instagram gradient */
     -webkit-background-clip: text; /* Clip background to text */
