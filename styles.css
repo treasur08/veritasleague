@@ -425,7 +425,7 @@ nav {
 }
 @font-face {
     font-family: chicks;
-    src: url(magic_vintage/Magic\ Vintage\ Demo.otf);
+    src: url(Chickens\ Lovers.ttf);
 }
 
 .follow-us p {
@@ -447,7 +447,40 @@ nav {
     color: #000; /* Default icon color */
     transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition for hover effect */
 }
+/* Table styling */
+.matches-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
 
+.matches-table th, .matches-table td {
+    border: 1px solid #ffffff;
+    padding: 10px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.matches-table th {
+    background-color: #444; /* Darker background for headers */
+    font-weight: bold;
+    color: #d49319;
+}
+
+.matches-table td {
+    background-color: rgba(255, 255, 255, 0.2); /* Slightly transparent rows */
+}
+.team-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.matches-table tr:nth-child(even) td {
+    background-color: rgba(255, 255, 255, 0.1); /* Alternate row colors */
+}
 /* Unique hover colors for each icon */
 .social-icons .social-icon:hover .fa-whatsapp {
     color: #25D366; /* WhatsApp green */
@@ -529,7 +562,18 @@ nav {
         flex-direction: column;
         align-items: flex-start;
     }
+    .team-icon {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        margin-right: 5px;
+        vertical-align: middle;
+    }
 
+    .matches-table th, .matches-table td {
+        font-size: 12px;
+        padding: 8px;
+    }
     .table-buttons {
         margin-top: 10px;
     }

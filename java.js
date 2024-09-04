@@ -50,7 +50,8 @@ const musicTracks = [
     "skrillex.mp3",
     "avamax.mp3",
     "kings.mp3",
-    'idol.mp3'
+    'idol.mp3',
+    "METAMORPHOSIS.mp3"
 ];  
 
 // Function to select a random track  
