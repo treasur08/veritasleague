@@ -30,7 +30,7 @@
         <p>Guild achievements will be dropped here</p>
     </div>
 
-    <!-- Second container: Rock Paper Scissors game -->
+        <!-- Second container: Rock Paper Scissors game -->
     <div class="container rps-container">
         <h1>Rock Paper Scissors</h1>
         <p>Choose your weapon:</p>
@@ -42,7 +42,53 @@
         <div class="result">
             <p id="result-text"></p>
         </div>
+        <button id="play-mines-btn" class="play-mines-btn">PLAY MINES 💣</button>
     </div>
+
+        <!-- Minesweeper Pop-up Container -->
+    <div id="minesweeper-popup" class="minesweeper-popup hidden">
+        <span class="close-minesweeper-btn"><i class="fas fa-times"></i></span> <!-- Close button -->
+        
+        <div class="minesweeper-header">
+            <h2>Minesweeper</h2>
+            <p>Select your grid size and number of mines:</p>
+            
+            <div class="selection">
+                <label for="grid-size">Grid Size:</label>
+                <select id="grid-size">
+                    <option value="3x3">3x3</option>
+                    <option value="4x4">4x4</option>
+                    <option value="5x5">5x5</option>
+                </select> ✅
+            </div>
+
+            <div class="selection">
+                <label for="mine-count">Mine Count:</label>
+                <select id="mine-count">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                </select> ✅
+            </div>
+
+            <button id="start-game" class="start-btn">Start</button>
+        </div>
+        
+        <!-- Game Board -->
+        <div id="minesweeper-grid" class="minesweeper-grid"></div>
+        
+        <div class="minesweeper-footer">
+            <p id="minesweeper-status"></p>
+            <button id="check-progress" class="progress-btn">Check Progress</button>
+            <button id="restart-game" class="restart-btn">Restart</button>
+        </div>
+    </div>
+
    <!-- Game Formation Container -->  
 <div class="formation-container" id="lineup">  
     <h1>Game Formation 4v4</h1>  

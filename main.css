@@ -128,7 +128,121 @@ p{
 .player-name {  
     margin-top: 5px; /* Margin above the player's name */  
     font-size: 1em; /* Font size of the player's name */  
-}  
+} 
+
+.minesweeper-popup {
+    text-align: center;
+    margin: 20px;
+}
+
+.rps-icons i {
+    font-size: 2em;
+    margin: 10px;
+    cursor: pointer;
+}
+.start-btn{
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #ffd900a0;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.progress-btn{
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #ffd900a0;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.restart-btn{
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #ffd900a0;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.play-mines-btn{
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #ffd900a0;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.play-mines-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Minesweeper Popup styles */
+.minesweeper-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.706);
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.minesweeper-popup.hidden {
+    display: none;
+}
+
+.close-popup-btn {
+    float: right;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.selection {
+    margin: 15px 0;
+}
+
+.minesweeper-grid {
+    display: grid;
+    grid-gap: 5px;
+    margin-top: 20px;
+}
+
+.minesweeper-footer {
+    margin-top: 20px;
+}
+
+/* Basic cell styles */
+.minesweeper-grid .cell {
+    width: 40px;
+    height: 40px;
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    line-height: 40px;
+    font-size: 1.5em;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 55px;
+}
+
+.minesweeper-grid .cell.opened {
+    background-color: #ffd90042;
+    cursor: default;
+}
+
 
 /* Media responsiveness */
 @media (max-width: 768px) {
@@ -136,7 +250,13 @@ p{
         margin: 20px;
         padding: 15px;
     }
-
+    #minesweeper-grid {
+        grid-template-columns: repeat(auto-fill, minmax(60px, 1fr)); /* Adjust cell size for smaller screens */
+    }
+    .minesweeper-popup {
+        text-align: center;
+        margin: 0px;
+    }
     .rps-icons {
         font-size: 2em; /* Smaller icons on smaller screens */
     }
