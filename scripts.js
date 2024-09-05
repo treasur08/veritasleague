@@ -132,14 +132,18 @@ function initGame() {
     gameGrid.innerHTML = '';
     board.forEach((cell, index) => {
         const cellElement = document.createElement('div');
-        cellElement.classList.add('game-cell');
+        cellElement.classList.add('game-cell'); 
         cellElement.setAttribute('data-index', index);
         cellElement.addEventListener('click', handleCellClick);
         gameGrid.appendChild(cellElement);
     });
     updateStatus();
     loadGame();
+    
+    // Let the bot play first if it's O's turn
+    if (currentPlayer === "O") botMove();
 }
+
 gameLink.addEventListener('click', (e) => {
     e.preventDefault(); // Prevent default anchor behavior
     gamePopup.style.display = 'block'; // Show the game popup
@@ -151,13 +155,20 @@ closeGameBtn.addEventListener('click', () => {
     resetGame(); // Optionally reset the game
 });
 
-
 // Event Listeners
 difficultyButtons.forEach(button => button.addEventListener('click', (event) => {
     difficulty = event.target.dataset.difficulty;
     document.querySelector('.game-header').style.display = 'none';
     document.querySelector('.game-grid').style.display = 'grid';
     document.querySelector('.game-info').style.display = 'block';
+
+    // Reset the game for a fresh start
+    resetGame();
+    
+    // Check if bot is 'O' and make the first move immediately
+    if (currentPlayer === "O") {
+        botMove();
+    }
 }));
 
 resetButton.addEventListener('click', resetGame);
@@ -173,7 +184,7 @@ gameLink.addEventListener('click', (e) => {
 });
 
 let board = ["", "", "", "", "", "", "", "", ""];
-let currentPlayer = "X"; // User is 'X', Bot is 'O'
+let currentPlayer = "O"; // User is 'X', Bot is 'O'
 let gameActive = true;
 let difficulty = "easy"; // Default difficulty
 let scores = { wins: 0, losses: 0, draws: 0 };
@@ -183,18 +194,23 @@ let scores = { wins: 0, losses: 0, draws: 0 };
 // Handle Cell Click
 function handleCellClick(event) {
     const index = event.target.getAttribute('data-index');
-    if (board[index] !== "" || !gameActive) return;
+    if (board[index] !== "" || !gameActive || currentPlayer !== "X") return; // Ensure player X's turn
 
     board[index] = currentPlayer;
+    currentPlayer = "O"; // Switch to bot's turn
     saveGame();
     renderBoard();
     checkGameResult();
-    if (gameActive) botMove();
+
+    if (gameActive) {
+        botMove(); // Let the bot play after the player
+    }
 }
 
 // Bot Move
 function botMove() {
-    if (!gameActive) return;
+    if (!gameActive || currentPlayer !== "O") return; // Ensure it's the bot's turn
+
     let availableCells = board.map((cell, index) => cell === "" ? index : null).filter(index => index !== null);
     if (availableCells.length === 0) return;
 
@@ -207,6 +223,7 @@ function botMove() {
     }
 
     board[move] = "O";
+    currentPlayer = "X"; // Hand the turn back to the player
     saveGame();
     renderBoard();
     checkGameResult();
@@ -321,11 +338,16 @@ function loadGame() {
 // Reset Game
 function resetGame() {
     board = ["", "", "", "", "", "", "", "", ""];
-    currentPlayer = "X";
+    currentPlayer = "O"; // Adjust this if you want the bot to start as 'O'
     gameActive = true;
     saveGame();
     renderBoard();
     updateStatus();
+
+    // If bot starts, make the first move
+    if (currentPlayer === "O") {
+        botMove();
+    }
 }
 
 // Show Game Records

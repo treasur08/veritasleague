@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 result = "You lose!";
             }
 
-            resultText.textContent = `Computer chose ${computerChoice}. ${result}`;
+            resultText.textContent = `SOUL chose ${computerChoice}. ${result}`;
         });
     });
 
@@ -106,6 +106,63 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
+    function updateStatus() {
+        minesweeperStatus.innerText = `Score: ${score}`;
+    }
+    function saveProgress() {
+        const progress = {
+            gridSize: gridSizeSelect.value,
+            mineCount: mineCountSelect.value,
+            openedCells: Array.from(minesweeperGrid.children).map(cell => ({
+                isOpened: cell.classList.contains('opened'),
+                hasMine: cell.dataset.mine ? true : false,
+                adjacentMines: cell.textContent
+            })),
+            statusText: minesweeperStatus.innerText
+        };
+        localStorage.setItem('minesweeperProgress', JSON.stringify(progress));
+    }
+    
+    function loadProgress() {
+        const savedProgress = localStorage.getItem('minesweeperProgress');
+        if (savedProgress) {
+            const progress = JSON.parse(savedProgress);
+    
+            // Restore grid size and mine count
+            gridSizeSelect.value = progress.gridSize;
+            mineCountSelect.value = progress.mineCount;
+            const [rows, cols] = progress.gridSize.split('x').map(Number);
+    
+            // Restore the grid and the state of each cell
+            minesweeperGrid.innerHTML = '';
+            minesweeperGrid.style.gridTemplateColumns = `repeat(${cols}, 40px)`;
+            minesweeperGrid.style.gridTemplateRows = `repeat(${rows}, 40px)`;
+    
+            progress.openedCells.forEach((cellState, index) => {
+                const cell = document.createElement('div');
+                cell.classList.add('cell');
+                if (cellState.isOpened) {
+                    cell.classList.add('opened');
+                    if (cellState.hasMine) {
+                        cell.textContent = '💣';
+                    } else {
+                        cell.textContent = cellState.adjacentMines;
+                    }
+                }
+                if (cellState.hasMine) {
+                    cell.dataset.mine = true;
+                }
+                cell.addEventListener('click', function () {
+                    handleCellClick(this, mineCount, rows, cols);
+                });
+                minesweeperGrid.appendChild(cell);
+            });
+    
+            // Restore the status text
+            minesweeperStatus.innerText = progress.statusText;
+        }
+    }
+    
 
     // Count adjacent mines
     function countAdjacentMines(cell, rows, cols) {
@@ -141,11 +198,14 @@ document.addEventListener('DOMContentLoaded', function () {
         const revealedCells = cells.filter(cell => cell.classList.contains('opened')).length;
         const totalCells = cells.length;
         const safeCells = totalCells - cells.filter(cell => cell.dataset.mine).length;
-
+    
         if (revealedCells === safeCells) {
-            minesweeperStatus.textContent = 'Congrats you did not hit a mine';
+            minesweeperStatus.textContent = 'You have not opened any cell';
+        } else {
+            minesweeperStatus.textContent = `Opened Cells: ${revealedCells}, Mines Hit: ${cells.filter(cell => cell.classList.contains('opened') && cell.dataset.mine).length}`;
         }
     });
+    
 
     // Music control
     const backgroundMusic = document.getElementById('background-music');
