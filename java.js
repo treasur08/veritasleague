@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     const rpsIcons = document.querySelectorAll('.rps-icons i');
     const resultText = document.getElementById('result-text');
+    const scoreBoard = document.getElementById('score-board');
     const playMinesBtn = document.getElementById('play-mines-btn');
     const minesweeperPopup = document.getElementById('minesweeper-popup');
     const closeMinesweeperBtn = document.querySelector('.close-minesweeper-btn');
@@ -12,6 +13,16 @@ document.addEventListener('DOMContentLoaded', function () {
     const restartGameBtn = document.getElementById('restart-game');
     const minesweeperStatus = document.getElementById('minesweeper-status');
 
+    let userScore = 0;
+    let computerScore = 0;
+    const winScore = 10;
+
+    function resetGame() {
+        userScore = 0;
+        computerScore = 0;
+        scoreBoard.textContent = `YOU 👤  0 ⚔ 0  SOUL 💢`;
+        resultText.textContent = '';
+    }
     // Rock Paper Scissors logic
     rpsIcons.forEach(icon => {
         icon.addEventListener('click', function () {
@@ -28,11 +39,21 @@ document.addEventListener('DOMContentLoaded', function () {
                 (userChoice === 'scissors' && computerChoice === 'paper')
             ) {
                 result = "You win!";
+                userScore++;
             } else {
                 result = "You lose!";
+                computerScore++;
             }
 
             resultText.textContent = `SOUL chose ${computerChoice}. ${result}`;
+            scoreBoard.textContent = `YOU 👤 ${userScore} ⚔ ${computerScore} SOUL 💢`;
+
+            if (userScore === winScore || computerScore === winScore) {
+                resultText.textContent = `You ${userScore} : ${computerScore} Soul - ${userScore === winScore ? 'You win!' : 'SOUL 💢⚔ wins!'}`;
+
+                // Display result for 6 seconds, then reset
+                setTimeout(resetGame, 6000);
+            }
         });
     });
 
