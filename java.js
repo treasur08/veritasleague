@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 resultText.textContent = `You ${userScore} : ${computerScore} Soul - ${userScore === winScore ? 'You win!' : 'SOUL ⚔ wins!'}`;
 
                 // Display result for 6 seconds, then reset
-                setTimeout(resetGame, 6000);
+                setTimeout(resetGame, 4000);
             }
         });
     });
