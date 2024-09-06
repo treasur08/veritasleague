@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function resetGame() {
         userScore = 0;
         computerScore = 0;
-        scoreBoard.textContent = `YOU 👤  0 ⚔ 0  SOUL 💢`;
+        scoreBoard.textContent = `YOU 👤  0 ⚔ 0  SOUL `;
         resultText.textContent = '';
     }
     // Rock Paper Scissors logic
@@ -46,10 +46,10 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             resultText.textContent = `SOUL chose ${computerChoice}. ${result}`;
-            scoreBoard.textContent = `YOU 👤 ${userScore} ⚔ ${computerScore} SOUL 💢`;
+            scoreBoard.textContent = `YOU 👤 ${userScore} ⚔ ${computerScore} SOUL`;
 
             if (userScore === winScore || computerScore === winScore) {
-                resultText.textContent = `You ${userScore} : ${computerScore} Soul - ${userScore === winScore ? 'You win!' : 'SOUL 💢⚔ wins!'}`;
+                resultText.textContent = `You ${userScore} : ${computerScore} Soul - ${userScore === winScore ? 'You win!' : 'SOUL ⚔ wins!'}`;
 
                 // Display result for 6 seconds, then reset
                 setTimeout(resetGame, 6000);
