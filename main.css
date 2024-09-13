@@ -278,6 +278,10 @@ p{
     .player-logo {  
         width: 60px; /* Smaller logo size on mobile */  
     }  
+    img{
+        width: 300px;
+        height: auto;
+    }
     
 
 }
