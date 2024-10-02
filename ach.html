@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achievement</title>
+    <!-- Link to Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+    <!-- Background video -->
+    <video autoplay muted loop id="background-video">
+        <source src="rotating_vid.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    
+    <!-- Background music -->
+    <audio id="background-music" loop>
+        <source src="skrillex.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    <button id="music-control" class="music-btn"><i class="fas fa-volume-up"></i></button>
+
+    <!-- First container: Glories -->
+    <div class="container glories-container">
+        <h1>Glories</h1>
+        <p>Match Week 1 results</p>
+        <img src="week1.png" alt="">
+        <p>Match Week 2 results</p>
+        <img src="week2.png" alt="">
+    </div>
+
+         <!-- Second container: Rock Paper Scissors game -->
+    <div class="container rps-container">
+        <h1>Rock Paper Scissors (First to get to 10)</h1>
+        <div class="score">
+            <p id="score-board">YOU 👤  0 ⚔ 0  SOUL</p>
+        </div>
+        <p>Choose your weapon:</p>
+        <div class="rps-icons">
+            <i class="fa fa-hand-rock" data-choice="rock"></i>
+            <i class="fa fa-hand-paper" data-choice="paper"></i>
+            <i class="fa fa-hand-scissors" data-choice="scissors"></i>
+        </div>
+        <div class="result">
+            <p id="result-text"></p>
+        </div>
+        <button id="play-mines-btn" class="play-mines-btn">PLAY MINES 💣</button>
+        
+    </div>
+
+        <!-- Minesweeper Pop-up Container -->
+    <div id="minesweeper-popup" class="minesweeper-popup hidden">
+        <span class="close-minesweeper-btn"><i class="fas fa-times"></i></span> <!-- Close button -->
+        
+        <div class="minesweeper-header">
+            <h2>Minesweeper</h2>
+            <p>Select your grid size and number of mines:</p>
+            
+            <div class="selection">
+                <label for="grid-size">Grid Size:</label>
+                <select id="grid-size">
+                    <option value="3x3">3x3</option>
+                    <option value="4x4">4x4</option>
+                    <option value="5x5">5x5</option>
+                </select> ✅
+            </div>
+
+            <div class="selection">
+                <label for="mine-count">Mine Count:</label>
+                <select id="mine-count">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                </select> ✅
+            </div>
+
+            <button id="start-game" class="start-btn">Start</button>
+        </div>
+        
+        <!-- Game Board -->
+        <div id="minesweeper-grid" class="minesweeper-grid"></div>
+        
+        <div class="minesweeper-footer">
+            <p id="minesweeper-status"></p>
+            <button id="check-progress" class="progress-btn">Check Progress</button>
+            <button id="restart-game" class="restart-btn">Restart</button>
+        </div>
+    </div>
+
+   <!-- Game Formation Container -->  
+<div class="formation-container" id="lineup">  
+    <h1>TEAM OF THE WEEK</h1>  
+    <div class="team">  
+        <h2>Team ?</h2>  
+        <div class="player" id="player1">  
+            <img src="boy.png" alt="Player 1" class="player-logo">  
+            <p class="player-name">Player 1</p>  
+        </div>  
+        <div class="player" id="player2">  
+            <img src="boy.png" alt="Player 2" class="player-logo">  
+            <p class="player-name">Player 2</p>  
+        </div>  
+        <div class="player" id="player3">  
+            <img src="girl.png" alt="Player 3" class="player-logo">  
+            <p class="player-name">Player 3</p>  
+        </div>  
+        <div class="player" id="player4">  
+            <img src="girl.png" alt="Player 4" class="player-logo">  
+            <p class="player-name">Player 4</p>  
+        </div>  
+    </div>  
+    
+    <!-- Crossed Guns Element -->  
+    <div class="crossed-guns">  
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">  
+            <path d="M32 0 L16 32 L32 16 L48 32 Z" fill="orange" />  
+            <path d="M32 64 L48 32 L32 48 L16 32 Z" fill="red" />  
+        </svg>  
+    </div>  
+
+    <div class="team">  
+        <h2>Team ?</h2>  
+        <div class="player" id="player5">  
+            <img src="girl.png" alt="Player 5" class="player-logo">  
+            <p class="player-name">Player 5</p>  
+        </div>  
+        <div class="player" id="player6">  
+            <img src="boy.png" alt="Player 6" class="player-logo">  
+            <p class="player-name">Player 6</p>  
+        </div>  
+        <div class="player" id="player7">  
+            <img src="boy.png" alt="Player 7" class="player-logo">  
+            <p class="player-name">Player 7</p>  
+        </div>  
+        <div class="player" id="player8">  
+            <img src="girl.png" alt="Player 8" class="player-logo">  
+            <p class="player-name">Player 8</p>  
+        </div>  
+    </div>  
+</div>  
+
+<!-- CSS for Crossed Guns -->  
+<style>  
+    .crossed-guns {  
+        display: flex;  
+        justify-content: center;  
+        align-items: center;  
+        margin: 20px 0;  
+    }  
+    .crossed-guns svg {  
+        width: 100px; /* Adjust the size as necessary */  
+        height: 100px;  
+        filter: drop-shadow(0 0 10px rgba(255,140,0,0.8)) drop-shadow(0 0 20px rgba(255,69,0,0.6));  
+        animation: glow 1.5s infinite alternate;  
+    }  
+    @keyframes glow {  
+        0% { filter: drop-shadow(0 0 5px rgba(255,140,0,0.8)); }  
+        100% { filter: drop-shadow(0 0 20px rgba(255,69,0,1)); }  
+    }  
+</style> 
+</div>
+
+    <!-- Link to external JavaScript file -->
+    <script src="java.js"></script>
+</body>
+</html>

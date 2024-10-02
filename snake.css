@@ -1,0 +1,182 @@
+/* Hide popup by default */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8); /* Transparent black background */
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+/* Hide popup by default */
+.hidden {
+    display: none;
+}
+
+/* Style the popup content box */
+.popup-contents {
+    position: relative;
+    width: 80%;
+    max-width: 800px;
+    height: 80%;
+    background-color: #4f4d466c;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 28px;
+    color: #fff;
+    cursor: pointer;
+}
+
+#close-btn:hover {
+    color: #f44336; /* Red color on hover */
+}
+
+/* Other styles (existing ones) */
+#gameCanvas {
+    width: 100%;
+    height: calc(100% - 100px);
+    border: 1px solid #000;
+}
+
+.arrow-btn {
+    padding: 20px;
+    font-size: 20px;
+    background-color: #ffd700;
+    border: 3px solid #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.2s, border-color 0.2s;
+    
+}
+
+.arrow-btn:active {
+    background-color: #ddd;
+    border-color: #000;
+}
+
+
+
+/* General styling */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+.game-container {
+    margin-top: 20px;
+}
+
+
+#scoreDisplay {
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+
+/* Control buttons - mobile-friendly gamepad layout */
+.controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    position: relative;
+    width: 150px;
+    height: 150px;
+    left: 70%;
+    margin-top: -20px;
+    
+}
+
+/* Gamepad arrow layout - "X" shape */
+#up-btn {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#down-btn {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#left-btn {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+#right-btn {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+}
+.restart-btn{
+    background-color: #ffd700;
+    font-family: c;
+}
+
+.arrow-btn:hover {
+    background-color: #e0e0e0;
+}
+.arrow-btn.pressed {
+    background-color: #d1d1d1;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 600px) {
+   
+    .popup-content {
+        width: 95%;
+        height: 90%;
+    }
+
+    #gameCanvas {
+        height: 60%;
+    }
+
+    .controls {
+        width: 100px;
+        height: 100px;
+        gap: 20px;
+        margin: 5px;
+        font-size: 50px;
+        
+    }
+
+    .arrow-btn {
+        padding: 7px;
+        font-size: 10px;
+        margin:0px;
+        margin-bottom: 20px;
+    
+    }
+}
+
+/* Gamepad button press and release effects */
+.arrow-btn.pressed {
+    background-color: #333;
+    color: white;
+    border-color: white;
+}

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VERITAS FF</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Background video -->
+    <video autoplay muted loop id="background-video">
+        <source src="rotating_vid.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+
+    <!-- Background music -->
+    <audio id="background-music" loop>
+        <source src="skrillex.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    <button id="music-control" class="music-btn"><i class="fas fa-volume-up"></i></button>
+
+    <!-- Navigation bar -->
+    <nav>
+        <div class="nav-container">
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="ach.html#lineup">LINEUP</a></li>
+                <li><a href="#table" id="announcements-link">ANNOUNCEMENTS</a></li>
+                <li><a href="#rules" id="rules-link">RULES</a></li>
+            </ul>
+            <div class="logo">
+                <img src="cup.png" alt="Logo" class="logo-image">
+                <h2 class="logo-text">VΣЯIƬΛƧ LEAGUE</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="ach.html">ACHIEVEMENTS</a></li>
+                <li><a href="https://chat.whatsapp.com/JUq9mONS3cE83xa21sJGNC">COMMUNITY</a></li>
+                <li><a href="#game" id="game-link">GAME</a></li>
+            </ul>
+            <div class="menu-icon">
+                <i class="fas fa-bars" id="menu-toggle"></i>
+            </div>
+        </div>
+    </nav>
+   <!-- Side Menu -->
+    <div class="side-menu" id="side-menu">
+        <div class="side-menu-close" id="side-menu-close">
+            <i class="fas fa-times"></i>
+        </div>
+        <ul class="side-menu-items">
+            <li><a href="ach.html#lineup">LINEUP</a></li>
+            <li><a href="#table" id="side-announcements-link">ANNOUNCEMENTS</a></li>
+            <li><a href="#rules" id="side-rules-link">RULES</a></li>
+            <li><a href="ach.html">ACHIEVEMENTS</a></li>
+            <li><a href="https://chat.whatsapp.com/JUq9mONS3cE83xa21sJGNC" id="side-community-link">COMMUNITY</a></li>
+            <li><a href="#game" id="side-game-link">GAME</a></li>
+        </ul>
+    </div>
+
+      <!-- Announcements Popup -->
+      <div id="announcements-popup" class="popup-container">
+        <div class="popup-content">
+            <span class="close-btn"><i class="fas fa-times"></i></span>
+            <h2>Announcements</h2>
+            <hr>
+            <p>Guild league 🏆 begins on friday! fixtures has been posted. Anticipate!</p>
+            <p>Since the point system has been introduced, we are introducing a new guild point quota system, each and every member of the guild shall have a point quota
+                <br> to fulfil by the end of the week, 2000 points per player. All players failing to meet this conditions at the weeks end, shall receive a point penalisation of 2-10 
+                <br>points depending on the degree of failure.</p>
+            <!-- Add more announcements as needed -->
+        </div>
+    </div>
+    <!-- League Table Section -->
+    <section id="league-table">
+        <div class="table-header">
+            <h2><img src="veritas.jpg" alt="Logo" class="small-logo"> GUILD LEAGUE TABLE</h2>
+            <div class="table-buttons">
+                <button class="btn">Table</button>
+                <button class="btn" id="matches-btn">Matches</button>
+                <button class="btn" id="mvp-btn">MVP</button>
+            </div>
+        </div>
+        <table class="league-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Team</th>
+                    <th>MP</th>
+                    <th>W</th>
+                    <th>L</th>
+                    <th>Kills</th>
+                    <th>PTS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="#">1</td>
+                    <td data-label="Team"><img src="gojo.jpg" alt="Team 1 Logo" class="team-logo">Gojo Team (Team 1)</td>
+                    <td data-label="MP">0</td>
+                    <td data-label="W">0</td>
+                    <td data-label="L">0</td>
+                    <td data-label="Kills">0</td>
+                    <td data-label="PTS">0</td>
+                </tr>
+                <tr>
+                    <td data-label="#">2</td>
+                    <td data-label="Team"><img src="var.jpg" alt="Team 2 Logo" class="team-logo">Variants (Team 2)</td>
+                    <td data-label="MP">1</td>
+                    <td data-label="W">0</td>
+                    <td data-label="L">1</td>
+                    <td data-label="Kills">5</td>
+                    <td data-label="PTS">0</td>
+                </tr>
+                <tr>
+                    <td data-label="#">3</td>
+                    <td data-label="Team"><img src="golden.jpg" alt="Team 3 Logo" class="team-logo">Golden Team (Team 3)</td>
+                    <td data-label="MP">0</td>
+                    <td data-label="W">0</td>
+                    <td data-label="L">0</td>
+                    <td data-label="Kills">0</td>
+                    <td data-label="PTS">0</td>
+                </tr>
+                <tr>
+                    <td data-label="#">4</td>
+                    <td data-label="Team"><img src="spade.jpg" alt="Team 4 Logo" class="team-logo">Veritas Spades (Team 4)</td>
+                    <td data-label="MP">1</td>
+                    <td data-label="W">1</td>
+                    <td data-label="L">0</td>
+                    <td data-label="Kills">15</td>
+                    <td data-label="PTS">5</td>
+                </tr>
+                <tr>
+                    <td data-label="#">5</td>
+                    <td data-label="Team"><img src="invinc.jpg" alt="Team 5 Logo" class="team-logo">Invincibles (Team 5)</td>
+                    <td data-label="MP">0</td>
+                    <td data-label="W">0</td>
+                    <td data-label="L">0</td>
+                    <td data-label="Kills">0</td>
+                    <td data-label="PTS">0</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    
+
+    <!-- Rules Popup -->
+    <div id="rules-popup" class="popup-container">
+        <div class="popup-content">
+            <span class="close-btn"><i class="fas fa-times"></i></span>
+            <h2>GUILD RULES</h2>
+            <b>General Rules</b>
+            <p>1. Room Password: The room password will be shared with players and spectators only (anyone can spectate) ❗before the match.
+            </p>
+            <p>2. Game Mode: The game mode will be Clash Squad (Trio(3)/squad(4)) depending on players availability</p>
+            <p>3. Match Duration: Each match will last until the winner is determined. ( No exiting room if Match has not  ended)            </p>
+            <p>4. Room Creation: the first team hosting is allowed to create the room and set it up. Then follow by the other team in the next match what must not violate any rule during room setting
+            </p>
+            <b>Pre-Game Rules
+            </b>
+            <p>1. Player Registration: Teams must register their players so an hour before match so that lineups can be dropped before the match.<br>
+                2. Team Formation: Teams must be formed before the match (if playing trio/squad mode).
+                
+            </p>
+            <b>In-Game Rules
+            </b>
+            <p>1. No Teaming: No teaming with other players outside of your registered team (if playing trio/squad mode).<br>
+                2. No Hacking: No use of hacks, cheats, or exploits.<br>
+                3. No Toxicity: No toxic behavior, including harassment, spamming (grenades,throwables)<br>
+                4. All characters skills are allowed <br>
+                5. Play Fair: Play fairly and respectfully.<br>
+                
+            </p>
+            <b>Post-Game Rules
+            </b>
+            <p>1. Winner Declaration: The winner will be declared based on the in-game results with a resulting point of 5 <br>
+                2. Dispute Resolution: Any disputes will be resolved by the room admin/moderator.<br>
+            </p>
+            <b>Penalties</b>
+            <p>1. Late Entry: Players who enter the room late will result a 1 point deduction <br>
+                2. Rule Violation: Players who violate the rules would result in their team getting a minus 5 deduction point<br>
+                3. Minimum of 2 and Maximum of 5 spectators for each match to observe any abnormal behavior from teammates<br>
+                4. Going offline during matches is no one's fault and your teams responsibility<br>
+            </p>
+
+            <!-- Add more rules as needed -->
+        </div>
+    </div>
+   <!-- Matches Popup -->
+ <div id="matches-popup" class="popup-container">
+    <div class="popup-content">
+        <span class="close-btn"><i class="fas fa-times"></i></span>
+        <h2>Match Schedule (Week 1)</h2>
+        <table class="matches-table"> 
+            <thead>
+                <tr>
+                    <th>MATCHES</th>
+                    <th>TEAMS</th>
+                    <th>TIME (WAT)</th>
+                    <th>SCORES</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Match 1</td>
+                    <td><img src="spade.jpg" alt="Team 4" class="team-icon"> Team 4 vs <img src="gojo.jpg" alt="Team 2" class="team-icon"> Team 2</td>
+                    <td>Friday (Time: 19:00 PM)</td>
+                    <td>TBD</td>
+                </tr>
+                
+                <tr>
+                    <td>Match 2</td>
+                    <td><img src="golden.jpg" alt="Team 3" class="team-icon"> Team 3 vs <img src="gojo.jpg" alt="Team 1" class="team-icon"> Team 1</td>
+                    <td>Friday (Time: 20:00 PM)</td>
+                    <td>TBD</td>
+                </tr>
+                <tr>
+                    <td>Match 3</td>
+                    <td><img src="invinc.jpg" alt="Team 5" class="team-icon"> Team 5 vs <img src="golden.jpg" alt="Team 3" class="team-icon"> Team 3</td>
+                    <td>Friday (Time: 21:00 PM)</td>
+                    <td>TBD</td>
+                </tr>
+                <tr>
+                    <td>Match 4</td>
+                    <td><img src="var.jpg" alt="Team 2" class="team-icon"> Team 2 vs <img src="invinc.jpg" alt="Team 5" class="team-icon"> Team 5</td>
+                    <td>Saturday (Time: 19:30 PM)</td>
+                    <td>TBD</td>
+                </tr>
+                <tr>
+                    <td>Match 5</td>
+                    <td><img src="gojo.jpg" alt="Team 1" class="team-icon"> Team 1 vs <img src="spade.jpg" alt="Team 4" class="team-icon"> Team 4</td>
+                    <td>Saturday (Time: 20:30 PM)</td>
+                    <td>TBD</td>
+                </tr>
+                <tr>
+                    <td>Match 6</td>
+                    <td><img src="golden.jpg" alt="Team 3" class="team-icon"> Team 3 vs <img src="var.jpg" alt="Team 2" class="team-icon"> Team 2</td>
+                    <td>Saturday (Time: 21:20 PM)</td>
+                    <td>TBD</td>
+                </tr>
+                <tr>
+                    <td>Match 7</td>
+                    <td><img src="invinc.jpg" alt="Team 5" class="team-icon"> Team 5 vs <img src="gojo.jpg" alt="Team 1" class="team-icon"> Team 1</td>
+                    <td>Sunday (Time: 19:00 PM)</td>
+                    <td>TBD</td>
+                </tr>
+                <tr>
+                    <td>Match 8</td>
+                    <td><img src="golden.jpg" alt="Team 3" class="team-icon"> Team 3 vs <img src="spade.jpg" alt="Team 4" class="team-icon"> Team 4</td>
+                    <td>Sunday (Time: 20:00 PM)</td>
+                    <td>TBD</td>
+                </tr>
+                <tr>
+                    <td>Match 9</td>
+                    <td><img src="gojo.jpg" alt="Team 1" class="team-icon"> Team 1 vs <img src="var.jpg" alt="Team 2" class="team-icon"> Team 2</td>
+                    <td>Sunday (Time: 21:00 PM)</td>
+                    <td>TBD</td>
+                </tr>   
+                <tr>
+                    <td>Match 10</td>
+                    <td><img src="invinc.jpg" alt="Team 5" class="team-icon"> Team 5 vs <img src="spade.jpg" alt="Team 4" class="team-icon"> Team 4</td>
+                    <td>Sunday (Time: 21:40 PM)</td>
+                    <td>TBD</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+ </div>
+    <!-- MVP Popup -->
+    <div id="mvp-popup" class="popup-container">
+        <div class="popup-content">
+            <span class="close-btn"><i class="fas fa-times"></i></span>
+            <h2>Best Performers</h2>
+            <p><i class="fas fa-medal" style="color: gold;"></i> Best Team Mate: ???</p>
+            <p><i class="fas fa-award" style="color: silver;"></i> Playmaker: ???</p>
+            <p><i class="fas fa-trophy" style="color: gold;"></i> Guild Winner: ???</p> <!-- Guild Winner with Trophy Icon -->
+        </div>
+    </div>
+
+    <!-- Game Popup -->  
+    <div id="game-popup" class="game-popup">  
+        <span class="close-game-btn"><i class="fas fa-times"></i></span> <!-- Close button -->  
+        <div class="game-header">  
+            <h2>  
+                <img src="cup.png" alt="Logo" class="large-logo glowing-logo"> <!-- Enlarged Logo -->
+                <p>TIC TAC TOE (X AND O)</p>  
+                <p>CHOOSE YOUR DIFFICULTY</p> 
+            </h2>  
+            <div class="choose-difficulty">  
+                <button class="difficulty-btn" data-difficulty="easy">Easy</button>  
+                <button class="difficulty-btn" data-difficulty="medium">Medium</button>  
+                <button class="difficulty-btn" data-difficulty="hard">Hard</button>  
+            </div>  
+        </div>  
+        <!-- Game grid and info here -->  
+        <div id="game-grid" class="game-grid"></div>  
+        
+        <!-- Move the game info section below the grid -->  
+        <div class="game-info">  
+            <p id="game-status">Current turn: X</p>  
+            <button id="reset-game" class="reset-btn">🔄 Reset Game</button>  
+            <button id="show-records" class="show-records-btn">Game Record ❌⭕</button>  
+        </div>  
+        
+        <!-- Game Result Container -->  
+        <div id="game-result" class="game-result">  
+            <p id="result-message"></p>  
+            <button id="restart-game" class="restart-btn">🔄 Restart Game</button>  
+        </div>  
+    </div>
+    <div class="follow-us">
+        <p>FOLLOW US ON</p>
+        <div class="social-icons">
+            <a href="https://chat.whatsapp.com/JUq9mONS3cE83xa21sJGNC" target="_blank" class="social-icon">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="https://instagram.com/tdpromoterr" target="_blank" class="social-icon">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://twitter.com/manliketreasure" target="_blank" class="social-icon">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=com.dts.freefireth&pcampaignid=web_share" target="_blank" class="social-icon">
+                <i class="fas fa-fire"></i>
+            </a>
+        </div>
+    </div>
+    
+
+</div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
