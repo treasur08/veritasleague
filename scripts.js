@@ -14,19 +14,37 @@ const musicTracks = [
     "idol.mp3",
     "METAMORPHOSIS.mp3"
 ];  
+let lastPlayedTrack = null;
+window.addEventListener('click', () => {
+    loadAndPlayNewTrack(); // Play music after user clicks anywhere on the page
+}, { once: true }); // The event listener is triggered only once
 
 // Function to select a random track  
 function selectRandomTrack() {  
-    const randomIndex = Math.floor(Math.random() * musicTracks.length);  
-    return musicTracks[randomIndex];  
+    let randomIndex;
+    do {
+        randomIndex = Math.floor(Math.random() * musicTracks.length);
+    } while (musicTracks[randomIndex] === lastPlayedTrack); 
+
+    lastPlayedTrack = musicTracks[randomIndex]; // Store the newly selected track
+    return lastPlayedTrack;  
 }  
 
 // Function to load and play a new track  
 function loadAndPlayNewTrack() {  
     const selectedTrack = selectRandomTrack();  
+    console.log("Selected track:", selectedTrack); // Log the selected track for debugging
     backgroundMusic.src = selectedTrack; // Set the new track as the source  
     backgroundMusic.load(); // Load the new track  
-    backgroundMusic.play(); // Play the new track  
+
+    backgroundMusic.oncanplaythrough = () => {
+        console.log("Track is ready to play.");
+        backgroundMusic.play(); // Play the new track once it's ready
+    };
+
+    backgroundMusic.onerror = (e) => {
+        console.error("Error playing track:", e);
+    };
 }  
 
 // Load random music track on page load  
@@ -47,8 +65,10 @@ musicControl.addEventListener('click', () => {
 
 // Event listener for when the current track ends  
 backgroundMusic.addEventListener('ended', () => {  
+    console.log("Track ended. Loading a new track.");  
     loadAndPlayNewTrack(); // Load and play a new random track when the current one ends  
 });  
+
 // Toggle rules popup
 const rulesLink = document.getElementById('rules-link');
 const rulesPopup = document.getElementById('rules-popup');
@@ -207,7 +227,6 @@ function handleCellClick(event) {
     }
 }
 
-// Bot Move
 function botMove() {
     if (!gameActive || currentPlayer !== "O") return; // Ensure it's the bot's turn
 
@@ -215,11 +234,13 @@ function botMove() {
     if (availableCells.length === 0) return;
 
     let move;
+
     if (difficulty === "easy") {
+        // Random move for easy difficulty
         move = availableCells[Math.floor(Math.random() * availableCells.length)];
-    } else {
-        // Implement better algorithms for medium/hard here
-        move = availableCells[Math.floor(Math.random() * availableCells.length)];
+    } else if (difficulty === "medium" || difficulty === "hard") {
+        // Check if the bot can win or block the player
+        move = findWinningMove("O") || findWinningMove("X") || availableCells[Math.floor(Math.random() * availableCells.length)];
     }
 
     board[move] = "O";
@@ -228,6 +249,33 @@ function botMove() {
     renderBoard();
     checkGameResult();
 }
+
+// Function to find a winning or blocking move
+function findWinningMove(player) {
+    const winConditions = [
+        [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
+        [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
+        [0, 4, 8], [2, 4, 6] // Diagonals
+    ];
+
+    for (const condition of winConditions) {
+        const [a, b, c] = condition;
+
+        // Check if two cells are filled with the player's symbol and one is empty
+        if (board[a] === player && board[b] === player && board[c] === "") {
+            return c;
+        }
+        if (board[a] === player && board[c] === player && board[b] === "") {
+            return b;
+        }
+        if (board[b] === player && board[c] === player && board[a] === "") {
+            return a;
+        }
+    }
+
+    return null; // No winning or blocking move found
+}
+
 
 // Check Game Result
 function checkGameResult() {

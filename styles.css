@@ -218,7 +218,13 @@ body, html {
 .btn:hover {
     background-color: darkgoldenrod;
 }
-
+@font-face {
+    font-family: creato;
+    src: url(creato_display/CreatoDisplay-Bold.otf);
+}
+#matches-popup{
+    font-family: creato;
+}
 .league-table {
     width: 100%;
     border-collapse: collapse;
@@ -408,16 +414,21 @@ nav {
     justify-content: center;
     align-items: center;
     z-index: 1000;
+    padding: 20px; /* Adds space around the popup */
+    overflow: auto; /* Ensures scrollable content if it's too large */
 }
 
 .popup-content {
     background-color: #2d261955;
     padding: 20px;
     border-radius: 10px;
+    max-width: 90%; /* Ensures content doesn't exceed screen width */
+    max-height: 90%; /* Ensures content doesn't exceed screen height */
     position: relative;
-    margin-top: 1%;
-    margin-bottom: 1%;
+    box-sizing: border-box; /* Ensures padding is included in width and height calculations */
+    overflow: auto; /* Ensures the popup content is scrollable if it exceeds its max height */
 }
+
 .follow-us {
     text-align: center;
     margin-top: 20px;
@@ -519,9 +530,9 @@ nav {
 
 
 .close-btn {
-    position: absolute;
-    top: 40px;
-    right: 10px;
+    position: fixed;
+    top: 50px;
+    right: 20px;
     cursor: pointer;
     color: white;
     font-size: 20px;
@@ -554,7 +565,9 @@ nav {
     animation: none; /* Stops glowing when hovering */
     filter: none; /* Resets any filter effects */
     text-shadow: none; /* Resets any text-shadow effects */
-  }
+}
+
+
   
 /* Responsive design for smaller screens */
 @media screen and (max-width: 768px) {
@@ -659,6 +672,21 @@ nav {
     }
     .game-header{
         margin-left: 80%;
+    }
+    .popup-container {
+        padding: 10px; 
+        justify-content: flex-start; 
+        align-items: flex-start; 
+    }
+
+    .popup-content {
+        padding: 15px; /* Inner padding for content */
+        width: 90%; /* Reduce the width slightly to create space */
+        max-width: 90%; /* Ensure the content doesn't touch the edges */
+        max-height: 80vh; /* Limit height to avoid content overflowing */
+        overflow: auto; /* Scrollable if content exceeds height */
+        border-radius: 8px; /* Slight rounding of corners */
+        margin: 20px auto; /* Add space around the popup content */
     }
     
 
