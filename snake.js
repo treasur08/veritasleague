@@ -151,7 +151,7 @@ function restartGame() {
     score = 0;
     document.getElementById('score').innerText = score;
     clearInterval(game);
-    game = setInterval(drawGame, 170);
+    game = setInterval(drawGame, 210);
 }
 
-let game = setInterval(drawGame, 180);
+let game = setInterval(drawGame, 230);
