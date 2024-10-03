@@ -70,15 +70,6 @@
 }
 
 
-
-/* General styling */
-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: Arial, sans-serif;
-}
-
 .game-container {
     margin-top: 20px;
 }
@@ -147,7 +138,7 @@ body {
 /* Responsive design for smaller screens */
 @media (max-width: 600px) {
    
-    .popup-content {
+    .popup-contents {
         width: 95%;
         height: 90%;
     }
