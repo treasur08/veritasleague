@@ -61,7 +61,6 @@
     cursor: pointer;
     outline: none;
     transition: background-color 0.2s, border-color 0.2s;
-    
 }
 
 .arrow-btn:active {
@@ -71,13 +70,6 @@
 
 
 
-/* General styling */
-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: Arial, sans-serif;
-}
 
 .game-container {
     margin-top: 20px;
@@ -100,7 +92,7 @@ body {
     width: 150px;
     height: 150px;
     left: 70%;
-    margin-top: -20px;
+    
     
 }
 
