@@ -13,6 +13,9 @@ let snake = [{ x: 9 * box, y: 10 * box }];
 let food = generateFood();
 let direction = null;
 let score = 0;
+let isPaused = false;
+
+
 let highScore = localStorage.getItem('highScore') ? localStorage.getItem('highScore') : 0;
 document.getElementById('high-score').innerText = highScore;
 
@@ -23,6 +26,7 @@ document.getElementById('up-btn').addEventListener('click', () => handleButtonPr
 document.getElementById('down-btn').addEventListener('click', () => handleButtonPress('ArrowDown', 'down-btn'));
 document.getElementById('left-btn').addEventListener('click', () => handleButtonPress('ArrowLeft', 'left-btn'));
 document.getElementById('right-btn').addEventListener('click', () => handleButtonPress('ArrowRight', 'right-btn'));
+document.getElementById('pause-btn').addEventListener('click', pauseGame);
 
 let directionChanged = false;  // Prevent direction from changing multiple times between frames
 
@@ -151,7 +155,27 @@ function restartGame() {
     score = 0;
     document.getElementById('score').innerText = score;
     clearInterval(game);
+    isPaused = false;
+    document.getElementById('pause-btn').innerHTML = '<i class="fas fa-pause"></i>'; // Reset pause icon
     game = setInterval(drawGame, 250);
+}
+function pauseGame() {
+    if (!isPaused) {
+        clearInterval(game); // Stop the game loop
+        game = null;
+        isPaused = true;
+        document.getElementById('pause-btn').innerHTML = '<i class="fas fa-play"></i>'; // Change to play icon
+    } else {
+        resumeGame(); // If paused, resume the game
+    }
+}
+
+
+// Function to resume the game
+function resumeGame() {
+    game = setInterval(drawGame, 250); // Restart the game loop
+    isPaused = false;
+    document.getElementById('pause-btn').innerHTML = '<i class="fas fa-pause"></i>'; // Change to pause icon
 }
 
 let game = setInterval(drawGame, 250);
