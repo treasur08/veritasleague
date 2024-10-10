@@ -234,15 +234,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // List of music tracks  
     const musicTracks = [  
-        "royalty.mp3",  
-        "warriors.mp3",  
-        "savior.mp3",  
-        "lonely-road.mp3",
-        "skrillex.mp3",
-        "avamax.mp3",
-        "kings.mp3",
-        "idol.mp3",
-        "METAMORPHOSIS.mp3"
+        "music/royalty.mp3",  
+        "music/warriors.mp3",  
+        "music/savior.mp3",  
+        "music/lonely-road.mp3",
+        "music/skrillex.mp3",
+        "music/avamax.mp3",
+        "music/kings.mp3",
+        "music/idol.mp3",
+        "music/METAMORPHOSIS.mp3"
     ]; 
     // Function to select a random track  
     function selectRandomTrack() {  

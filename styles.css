@@ -590,7 +590,7 @@ nav {
     }
 
     .league-table {
-        font-size: 14px; /* Reduce font size on smaller screens */
+        font-size: 12px; /* Reduce font size on smaller screens */
     }
 
     .league-table th, .league-table td {

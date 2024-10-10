@@ -4,47 +4,41 @@ const backgroundMusic = document.getElementById('background-music');
 
 // List of music tracks  
 const musicTracks = [  
-    "royalty.mp3",  
-    "warriors.mp3",  
-    "savior.mp3",  
-    "lonely-road.mp3",
-    "skrillex.mp3",
-    "avamax.mp3",
-    "kings.mp3",
-    "idol.mp3",
-    "METAMORPHOSIS.mp3"
+    "music/royalty.mp3",  
+    "music/warriors.mp3",  
+    "music/savior.mp3",  
+    "music/lonely-road.mp3",  
+    "music/skrillex.mp3",  
+    "music/avamax.mp3",  
+    "music/kings.mp3",  
+    "music/idol.mp3",  
+    "music/METAMORPHOSIS.mp3"  
 ];  
-let lastPlayedTrack = null;
-window.addEventListener('click', () => {
-    loadAndPlayNewTrack(); // Play music after user clicks anywhere on the page
-}, { once: true }); // The event listener is triggered only once
+
+let lastPlayedTrack = null;  
 
 // Function to select a random track  
 function selectRandomTrack() {  
-    let randomIndex;
-    do {
-        randomIndex = Math.floor(Math.random() * musicTracks.length);
-    } while (musicTracks[randomIndex] === lastPlayedTrack); 
+    let randomIndex;  
+    do {  
+        randomIndex = Math.floor(Math.random() * musicTracks.length);  
+    } while (musicTracks[randomIndex] === lastPlayedTrack);  
 
-    lastPlayedTrack = musicTracks[randomIndex]; // Store the newly selected track
+    lastPlayedTrack = musicTracks[randomIndex]; // Store the newly selected track  
     return lastPlayedTrack;  
 }  
 
 // Function to load and play a new track  
 function loadAndPlayNewTrack() {  
     const selectedTrack = selectRandomTrack();  
-    console.log("Selected track:", selectedTrack); // Log the selected track for debugging
+    console.log("Selected track:", selectedTrack); // Log the selected track for debugging  
     backgroundMusic.src = selectedTrack; // Set the new track as the source  
     backgroundMusic.load(); // Load the new track  
 
-    backgroundMusic.oncanplaythrough = () => {
-        console.log("Track is ready to play.");
-        backgroundMusic.play(); // Play the new track once it's ready
-    };
-
-    backgroundMusic.onerror = (e) => {
-        console.error("Error playing track:", e);
-    };
+    // Play the new track once it's ready  
+    backgroundMusic.play().catch(error => {  
+        console.error("Error playing track:", error.message);  
+    });  
 }  
 
 // Load random music track on page load  
@@ -67,7 +61,7 @@ musicControl.addEventListener('click', () => {
 backgroundMusic.addEventListener('ended', () => {  
     console.log("Track ended. Loading a new track.");  
     loadAndPlayNewTrack(); // Load and play a new random track when the current one ends  
-});  
+});
 
 // Toggle rules popup
 const rulesLink = document.getElementById('rules-link');
