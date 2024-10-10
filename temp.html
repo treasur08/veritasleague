@@ -4,10 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VERITAS FF</title>
+    <meta property="og:description" content="⚔ En la Verita y en la Guerra ⚔" />  
+    <meta property="og:image" content="https://i.ibb.co/SJpkpTj/verita.jpg"/>  
+    <meta property="og:url" content="https://veritas-seven.vercel.app/" />  
+    <meta property="og:type" content="website" />  
+    <link rel="icon" type="image/png" sizes="32x32" href="veritas.jpg">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Link to your CSS file -->
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="snake.css">
+
 </head>
 <body>
     <!-- Background video -->
@@ -39,6 +46,7 @@
                 <li><a href="ach.html">ACHIEVEMENTS</a></li>
                 <li><a href="https://chat.whatsapp.com/JUq9mONS3cE83xa21sJGNC">COMMUNITY</a></li>
                 <li><a href="#game" id="game-link">GAME</a></li>
+                <li id="snake-btn-2">SNAKE 🐍</li>
             </ul>
             <div class="menu-icon">
                 <i class="fas fa-bars" id="menu-toggle"></i>
@@ -57,6 +65,7 @@
             <li><a href="ach.html">ACHIEVEMENTS</a></li>
             <li><a href="https://chat.whatsapp.com/JUq9mONS3cE83xa21sJGNC" id="side-community-link">COMMUNITY</a></li>
             <li><a href="#game" id="side-game-link">GAME</a></li>
+            <li id="snake-btn-1">SNAKE 🐍</li>
         </ul>
     </div>
 
@@ -144,7 +153,30 @@
             </tbody>
         </table>
     </section>
-    
+    <div id="snake-popup" class="popups hiddens">
+        <div class="popup-contents">
+            <span id="close-popup" class="close-btn">
+                <i class="fas fa-times"></i> 
+            </span>
+            <span id="pause-btn" class="pause-btn">
+                <i class="fas fa-pause"></i> 
+            </span>
+            <canvas id="gameCanvas"></canvas>
+            <div id="score-container">
+                <p>Score: <span id="score">0</span></p>
+                <p>High Score: <span id="high-score">0</span></p>
+            </div>
+            <div class="controls">
+                <button class="arrow-btn" id="up-btn">↑</button>
+                <div class="side-arrows">
+                    <button class="arrow-btn" id="left-btn">←</button>
+                    <button class="arrow-btn" id="down-btn">↓</button>
+                    <button class="arrow-btn" id="right-btn">→</button>
+                </div>
+            </div>
+            <button onclick="restartGame()">Restart Game</button>
+        </div>
+    </div>
 
     <!-- Rules Popup -->
     <div id="rules-popup" class="popup-container">
@@ -332,5 +364,6 @@
 </div>
 
     <script src="scripts.js"></script>
+    <script src="snake.js"></script>
 </body>
 </html>

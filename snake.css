@@ -1,5 +1,5 @@
 /* Hide popup by default */
-.popup {
+.popups {
     position: fixed;
     top: 0;
     left: 0;
@@ -13,7 +13,7 @@
     overflow: hidden;
 }
 /* Hide popup by default */
-.hidden {
+.hiddens {
     display: none;
 }
 

@@ -222,9 +222,7 @@ body, html {
     font-family: creato;
     src: url(creato_display/CreatoDisplay-Bold.otf);
 }
-#matches-popup{
-    font-family: creato;
-}
+
 .league-table {
     width: 100%;
     border-collapse: collapse;
