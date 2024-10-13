@@ -475,9 +475,15 @@ nav {
     font-weight: bold;
     color: #d49319;
 }
+@font-face {
+    font-family: newf;
+    src: url(The\ Estory.ttf);
+}
+
 
 .matches-table td {
     background-color: rgba(255, 255, 255, 0.2); /* Slightly transparent rows */
+    font-family: newf;
 }
 .team-icon {
     width: 20px;
@@ -592,7 +598,6 @@ nav {
     .league-table {
         font-size: 12px; /* Reduce font size on smaller screens */
     }
-
     .league-table th, .league-table td {
         padding: 8px; /* Adjust padding for smaller screens */
     }
